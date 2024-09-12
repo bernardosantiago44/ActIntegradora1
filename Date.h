@@ -15,6 +15,7 @@ private:
     int hour;
     int min;
     int sec;
+
 public:
     static string months[12];
     Date(Month month, int day, int year, int hour, int min, int sec);
