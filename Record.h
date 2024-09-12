@@ -10,5 +10,6 @@ private:
     string address;
     string errorMessage;
 public:
-    Record(Date date, string address, string errorMessage);)
+    Record(const Date& date, string address, string errorMessage);
+    void print() const;
 };

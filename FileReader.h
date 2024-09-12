@@ -1,4 +1,5 @@
 #pragma ONCE
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -7,5 +8,5 @@ class FileReader {
 private:
     FileReader();
 public:
-    static string readFile(const string& filename);
+    static void readFile(const string& filename);
 };
