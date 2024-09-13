@@ -33,9 +33,72 @@ void Date::print() const
     cout << monthNames[month] << " " << day << " @ " << hour << ":" << min << ":" << sec << endl;
 }
 
+bool Date::operator<(const Date& other) const {
+    if (year < other.year) {
+        return true;
+    } else if (year > other.year) {
+        return false;
+    }
+
+    // If years are equal, compare months
+    if (month < other.month) {
+        return true;
+    } else if (month > other.month) {
+        return false;
+    }
+
+    // If months are equal, compare days
+    if (day < other.day) {
+        return true;
+    } else if (day > other.day) {
+        return false;
+    }
+
+    // If days are equal, compare hours
+    if (hour < other.hour) {
+        return true;
+    } else if (hour > other.hour) {
+        return false;
+    }
+
+    // If hours are equal, compare minutes
+    if (min < other.min) {
+        return true;
+    } else if (min > other.min) {
+        return false;
+    }
+
+    // If minutes are equal, compare seconds
+    if (sec < other.sec) {
+        return true;
+    } else if (sec > other.sec) {
+        return false;
+    }
+
+    return false;
+}
+
+bool Date::operator==(const Date& other) const {
+    return (
+        year     == other.year
+        && month == other.month
+        && day   == other.day
+        && hour  == other.hour
+        && min   == other.min
+        && sec   == other.sec
+    );
+}
+
+bool Date::operator<=(const Date& other) const {
+    return *this < other || *this == other;
+}
+
 bool Date::operator>(const Date& other) const {
-    // TODO: Implement logic
-    return true;
+    return !(*this <= other);
+}
+
+bool Date::operator>=(const Date& other) const {
+    return *this > other || *this == other;
 }
 
 // Setters
