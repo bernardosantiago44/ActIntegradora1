@@ -3,14 +3,13 @@
 
 #include <iostream>
 #include <string>
-#include "Record.h"
-
+#include "FileReader.h"
 
 using namespace std;
 
 int main() {
-    Date date(Jan, 1, 2021, 0, 0, 0);
-    Record record(date, "127.0.0.1", "Error message");
-    record.print();
+    // Load data from log file
+    vector<Record> records;
+    FileReader::readFile("bitacora-1.txt", records);
     return 0;
 }

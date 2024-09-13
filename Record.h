@@ -1,10 +1,10 @@
-#pragma ONCE
+#pragma once
 #include <string>
 #include "Date.h"
 
 using namespace std;
 
-struct Record {
+class Record {
 private:
     Date date;
     string address;
