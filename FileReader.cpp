@@ -2,15 +2,11 @@
 
 void FileReader::readFile(const string& filename, vector<Record>& records) {
     // Open the file
-    int maxLines = 5;
     ifstream file(filename);
     if (file.is_open()) {
         // Read the file line by line
         string line;
         while (getline(file, line)) {
-            if (maxLines-- == 0) {
-                break;
-            }
             stringstream ss(line);
             Record record = readRecordFromLine(ss);
             records.push_back(record);

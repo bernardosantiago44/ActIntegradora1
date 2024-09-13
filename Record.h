@@ -11,5 +11,7 @@ private:
     string errorMessage;
 public:
     Record(const Date& date, string address, string errorMessage);
+    Record();
     void print() const;
+    Date getDate() const;
 };

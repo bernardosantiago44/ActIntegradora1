@@ -32,5 +32,9 @@ public:
     void setSec(int sec);
 
     void print() const;
+    bool operator < (const Date& other) const; // Comparable dates
+    bool operator == (const Date& other) const; // Comparable dates
+    bool operator <= (const Date& other) const; // Comparable dates
     bool operator > (const Date& other) const; // Comparable dates
+    bool operator >= (const Date& other) const; // Comparable dates
 };
