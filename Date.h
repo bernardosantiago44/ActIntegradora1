@@ -16,6 +16,7 @@ private:
     int hour;
     int min;
     int sec;
+
 public:
     static const map<string, Month> months;
     static string monthNames[12];
