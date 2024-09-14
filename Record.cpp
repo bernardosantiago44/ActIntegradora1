@@ -15,4 +15,8 @@ void Record::print() const {
     cout << "Error message: " << errorMessage << endl;
 }
 
+string Record::formatForFile() const {
+    return date.formatForFile() + " " + address + " " + errorMessage;
+}
+
 Date Record::getDate() const { return date; }

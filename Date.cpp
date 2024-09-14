@@ -1,6 +1,6 @@
 #include "Date.h"
 
-string Date::monthNames[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+string Date::monthNames[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 map<string, Month> const Date::months = {
     {"Jan", Jan},
     {"Feb", Feb},
@@ -31,6 +31,34 @@ Date::Date() : Date(Jan, 1, 0, 0, 0, 0) {}
 void Date::print() const
 {
     cout << monthNames[month] << " " << day << " @ " << hour << ":" << min << ":" << sec << endl;
+}
+
+string Date::formatForFile() const {
+    string formattedDate;
+
+    // Format date directly
+    formattedDate = monthNames[month] + " " + to_string(day) + " ";
+
+    // Format hour
+    if (hour < 10) { // 05:mm:ss
+        formattedDate += "0" + to_string(hour) + ":";
+    } else {         // 15:mm:ss
+        formattedDate += to_string(hour) + ":";
+    }
+
+    if (min < 10) { // hh:05:ss
+        formattedDate += "0" + to_string(min) + ":";
+    } else {        // hh:35:ss
+        formattedDate += to_string(min) + ":";
+    }
+    
+    if (sec < 10) { // hh:mm:05
+        formattedDate += "0" + to_string(sec);
+    } else {        // hh:mm:25
+        formattedDate += to_string(sec);
+    }
+
+    return formattedDate;
 }
 
 bool Date::operator<(const Date& other) const {

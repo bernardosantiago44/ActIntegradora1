@@ -14,4 +14,5 @@ public:
     Record();
     void print() const;
     Date getDate() const;
+    string formatForFile() const;
 };

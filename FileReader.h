@@ -10,6 +10,7 @@ using namespace std;
 
 class FileReader {
 private:
+    // To prevent from being instantiated
     FileReader();
     static Record readRecordFromLine(stringstream& ss);
 public:
