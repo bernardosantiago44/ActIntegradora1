@@ -9,24 +9,9 @@
 using namespace std;
 
 int main() {
-    // Time taken to parse the log file
-    auto start = chrono::high_resolution_clock::now();
-    // Load data from log file
-    vector<Record> records;
-    FileReader::readFile("bitacora-1.txt", records);
-    auto end = chrono::high_resolution_clock::now();
+    Date date(Feb, 15, 2021, 15, 21, 35);
+    Record record(date, "127.0.0.1", "Unkown errr");
 
-    // Calculate the time taken to parse the log file
-    auto elapsed = chrono::duration_cast<chrono::milliseconds>(end - start);
-    cout << "Time taken to parse the log file: " << elapsed.count() << " milliseconds" << endl;
-
-
-    start = chrono::high_resolution_clock::now();
-    // Sort the records
-    Sorter::mergeSort(records);
-    end = chrono::high_resolution_clock::now();
-
-    elapsed = chrono::duration_cast<chrono::milliseconds>(end - start);
-    cout << "Time taken to sort the records: " << elapsed.count() << " milliseconds" << endl;
+    cout << record.formatForFile() << endl;
     return 0;
 }
