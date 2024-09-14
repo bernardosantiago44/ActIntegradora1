@@ -4,14 +4,15 @@
 #include <string>
 #include <chrono>
 #include "FileReader.h"
+#include "FileWriter.h"
 #include "Sorter.h"
 
 using namespace std;
 
 int main() {
-    Date date(Feb, 15, 2021, 15, 21, 35);
-    Record record(date, "127.0.0.1", "Unkown errr");
-
-    cout << record.formatForFile() << endl;
+    vector<Record> records;
+    FileReader::readFile("bitacora-1.txt", records);
+    Sorter::mergeSort(records);
+    FileWriter::writeRecords(records, "bitacoraOrdenada1.3-eq6.txt");
     return 0;
 }
